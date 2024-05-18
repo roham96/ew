@@ -26,4 +26,13 @@ class TransferRequest extends FormRequest
             'amount' => ['required', 'numeric', 'min:1000', 'max:100000000'],
         ];
     }
+
+
+    public function attributes()
+    {
+        return [
+          'mobile'=>__('action.mobile'),
+          'amount'=>__('action.amount'),
+        ];
+    }
 }

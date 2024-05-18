@@ -24,9 +24,20 @@ class RegisterRequest extends FormRequest
 
         return [
             'national_code' => ['required', 'numeric', 'regex:/^[0-9]{10}/i'],
-            'mobile' => ['required',  'unique:users,mobile','regex:/^[0][9][0-9]{9}/i'],
+            'mobile' => ['required',  'unique:users,mobile', 'regex:/^[0][9][0-9]{9}/i'],
             'password' => ['required', 'string', 'min:8'],
             'confirm_password' => ['required_if:password,true', 'string', 'min:8'],
+        ];
+    }
+
+
+    public function attributes()
+    {
+        return [
+            'national_code' => __('action.national_code'),
+            'mobile' => __('action.mobile'),
+            'password' => __('action.password'),
+            'confirm_password' => __('action.confirm_password'),
         ];
     }
 }

@@ -26,4 +26,13 @@ class LoginRequest extends FormRequest
             'password' => ['required', 'string']
         ];
     }
+
+
+    public function attributes()
+    {
+        return [
+          'mobile'=>__('action.mobile'),
+          'password'=>__('action.password'),
+        ];
+    }
 }

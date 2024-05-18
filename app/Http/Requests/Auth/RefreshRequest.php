@@ -25,4 +25,11 @@ class RefreshRequest extends FormRequest
             'refresh' => ['required', 'string'],
         ];
     }
+
+    public function attributes()
+    {
+        return [
+          'refresh'=>__('action.refresh'),
+        ];
+    }
 }
