@@ -1,4 +1,4 @@
-FROM php:8.2-fpm
+FROM php:8.3-fpm
 
 # Copy composer.lock and composer.json
 COPY composer.lock composer.json /var/www/
@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
     locales \
     zip \
     jpegoptim optipng pngquant gifsicle \
-    vim \
+    nano \
     unzip \
     git \
     curl \
@@ -42,10 +42,6 @@ COPY . /var/www
 
 # Copy existing application directory permissions
 COPY --chown=www:www . /var/www
-
-RUN cp .env.example .env
-RUN composer install
-
 
 # Change current user to www
 USER www
